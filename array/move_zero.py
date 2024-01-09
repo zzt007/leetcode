@@ -39,4 +39,4 @@ if __name__ == '__main__':
     output = solution.moveZeroes(input)
     print(output)
     
-# 小结，单次测试中引入了两个计数器，不如答案中只有一个计数器方便
+# 小结，单次测试中引入了两个计数器，不如答案中只有一个计数器
