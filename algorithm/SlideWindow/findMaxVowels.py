@@ -16,6 +16,7 @@ class Solution:
                 count += 1
         res = max(res,count)
 
+        # 这里分开k前后部分进行遍历很巧妙，刚好可以使用i和k来表示即将移出窗口和即将进入窗口的两个元素
         for i in range(k,len(s)):
             if s[i-k] in hashset:
                 count -= 1
