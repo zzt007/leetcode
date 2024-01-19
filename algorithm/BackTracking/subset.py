@@ -14,6 +14,8 @@ class Solution:
     def backtracking(self,nums,res,length,index,subset):
         # 基线条件
         if len(subset) == length:
+            # 下面这样写是错误的,因为这里还涉及到了拷贝，直接将subset添加，由于其有pop操作，会将值剔除，导致元素个数增加了，但是值是空值
+            # res.append(subset)
             res.append(subset[:])
             return
         
@@ -26,7 +28,7 @@ class Solution:
 
 if __name__ == "__main__":
     test = Solution()
-    nums = [1,2,3,4,5]
+    nums = [1,2]
     output = test.subsets(nums)
     print(output)
     print(len(output))
