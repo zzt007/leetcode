@@ -30,7 +30,7 @@ class Solution:
         for i in range(n+1):
             fast = fast.next
         # 同时移动快慢指针，直至快指针为None
-        while(fast == None):
+        while(fast != None):
             fast = fast.next
             slow = slow.next
         # 此时慢指针对应删除元素的前驱元素,执行删除操作
