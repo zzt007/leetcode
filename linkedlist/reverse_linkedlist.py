@@ -18,3 +18,35 @@ class Solution:
         return dummy.next
 
 # 小结：dummy作为一个虚拟结点，最后返回dummy.next，其实有点句柄的感觉
+    
+# 参照代码随想录的写法，感觉更易懂；本质也是双指针的
+class Solution_v2:
+    def reverseLinkedlist(self,head:ListNode)-> ListNode:
+        pre = None
+        cur = head
+        while(cur != None):
+            # 创建一个临时指针用来存储cur.next，避免出现修改了连接后无法获取cur.next的情况
+            temp = cur.next
+            # 反转
+            cur.next = pre 
+            pre = cur
+            cur = temp
+        # 返回翻转后的头节点
+        return pre
+
+# 根据双指针来写递归
+class Solution_v3:
+    def reverseLinkedlist(self,head:ListNode)->ListNode:
+        pre = None
+        cur = head
+        return self.reverse(cur,pre)
+    
+    def reverse(self,cur:ListNode,pre:ListNode):
+        # 定义基线条件
+        if cur == None:
+            return pre
+        # 定义递归条件
+        temp = cur.next 
+        cur.next = pre
+        # 注意传参
+        return self.reverse(temp,cur)
